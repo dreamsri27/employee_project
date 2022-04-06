@@ -1,0 +1,31 @@
+{% extends "employee_register/base.html" %}
+
+
+
+
+ {% block content %}
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FullName</th>
+        <th scope="col">EmpCode</th>
+        <th scope="col">Position</th>
+        <th scope='col'> actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for data in data %}
+      <tr>
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.fullname}}</td>
+        <td>{{data.empcode}}</td>
+        <td>{{data.position}}</td>
+        <td><a href="deleteemp/{{data.id}}" class='btn btn-danger btn-sm'>delete</a></td> 
+        <td><a href="deleteemp/{{data.id}}" class='btn btn-light btn-sm'>edit</a></td> 
+        
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+{% endblock content %}
