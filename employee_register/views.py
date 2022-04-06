@@ -26,5 +26,13 @@ def deleteemp(request,id):
     varr.delete()   
     return redirect("employee_list")
 
-def editemp(request)
+def editemp(request):
+    if request.method == "POST":
+        fullname = request.POST.get('fullname')
+        empcode = request.POST.get('empcode')
+        mobile = request.POST.get('mobile')
+        position = request.POST.get('position')
+        print(fullname)
+        
+    return redirect('employee_list')
 
