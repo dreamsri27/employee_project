@@ -1,0 +1,29 @@
+{% extends "employee_register/base.html" %}
+{% block content%}
+
+<form action='{{gf.id}}' method="post">
+    {% csrf_token %}
+    <div class="row mb-3">
+    <div class="mb-6" >
+      <label >Full Name</label>
+      <input type="text" name="fullname" value='{{gf.fullname}}' placeholder="place ur name here">
+      
+    </div>
+    <div class="mb-3">
+      <label >empcode</label>
+      <input type="text" name="empcode" value='{{gf.empcode}}' placeholder="enter ur emp code here">
+    </div>
+    <div class="mb-3">
+       <label >Mobile</label>
+       <input type="text" name="mobile" value='{{gf.mobile}}'placeholder="enter ur mobile number here">
+     </div>
+     <div class="mb-3">
+       <label >Position</label>
+       <input type="text" name="position"value='{{gf.position}}'placeholder="enter ur emp position here">
+     </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+     
+  
+  </form>
+{% endblock content%}

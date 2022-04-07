@@ -18,7 +18,7 @@ def employee_form(request):
         employeedata.save()
 
         message = "data saved succesfully"
-        return render(request,'employee_register/employee_form.html',{'message':message})
+        return redirect("employee_list")
     
     return render(request,"employee_register/employee_form.html")
 def deleteemp(request,id):
@@ -35,4 +35,18 @@ def editemp(request):
         print(fullname)
         
     return redirect('employee_list')
+
+def partiform(request,id):
+    gf = Employee.objects.get(id=id)
+    if request.method == "POST":
+        fullname = request.POST.get('fullname')
+        empcode = request.POST.get('empcode')
+        mobile = request.POST.get('mobile')
+        position = request.POST.get('position')
+        gf.fullname=fullname
+        gf.empcode= empcode
+        gf.mobile = mobile
+        gf.position = position
+        gf.save()
+    return render(request,'employee_register/partiform.html',{'gf':gf})
 
